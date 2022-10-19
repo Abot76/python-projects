@@ -1,0 +1,67 @@
+from tkinter import *
+
+root = Tk()
+root.title('Search-U-test-1')
+root.geometry("500x300")
+
+#UPdate the list box
+def update(data):
+    #clear list box
+    my_list.delete(0, END)
+
+    #add back
+    for item in data:
+        my_list.insert(END, item)
+
+
+#Update netry box with list box clicked
+def fillout(e):
+    my_entry.delete(0, END)
+
+
+    my_entry.insert(0, my_list.get(ACTIVE))
+
+
+#Creata function to check entry vs listbox
+def check(e):
+    typed = my_entry.get()
+
+    if typed == '':
+        data = apps
+    else:
+        data = []
+        for item in apps:
+            if typed.lower() in item.lower():
+                data.append(item) 
+
+    update(data)
+
+#Create label
+my_label = Label(root, text="Start typing...",
+    font=("Helvetica", 14), fg="grey")
+
+my_label.pack(pady=20)
+
+#Creata an entry box
+my_entry = Entry(root, font=("Helvetica", 20))
+my_entry.pack()
+
+#Create a listbox
+my_list = Listbox(root, width=50)
+my_list.pack(pady=40)
+
+
+#Creaata a list
+apps = ["Tlauncher", "Photoshop", "Viber", "Geforce", "Brave", "Synapse", "VScode", "Discord", "Steep"]
+
+#add items to list
+update(apps)
+
+# Create a binding on the list box on click
+my_list.bind("<<ListboxSelect>>", fillout)
+
+
+# Create a bindingon the entry box
+my_entry.bind("<KeyRelease>", check)
+
+root.mainloop()

@@ -1,0 +1,42 @@
+import time
+import os
+
+print("""
+░██╗░░░░░░░██╗██╗███╗░░██╗██████╗░░█████╗░███████╗███████╗░░███╗░░██████╗░
+░██║░░██╗░░██║██║████╗░██║██╔══██╗██╔══██╗╚════██║██╔════╝░████║░░╚════██╗
+░╚██╗████╗██╔╝██║██╔██╗██║██║░░██║██║░░██║░░███╔═╝█████╗░░██╔██║░░░░███╔═╝
+░░████╔═████║░██║██║╚████║██║░░██║██║░░██║██╔══╝░░██╔══╝░░╚═╝██║░░██╔══╝░░
+░░╚██╔╝░╚██╔╝░██║██║░╚███║██████╔╝╚█████╔╝███████╗███████╗███████╗███████╗
+░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚══╝╚═════╝░░╚════╝░╚══════╝╚══════╝╚══════╝╚══════╝
+""")
+print("""
+[1] Continue With First Time Setup
+[2] Ive Already Done First Time Setup
+""")
+setup = input("[?]: ")
+if setup == '1':
+	name = input(str("Please enter your account user name: "))
+	pas = input(str("Please enter your account password to login: "))
+
+	with open('user/username.txt', 'w') as f:
+		f.writelines(name)
+
+	with open('user/password.txt', 'w') as f:
+		f.writelines(pas)
+	print("Setup sucssesful.")
+	input("Press enter to close: ")
+
+
+if setup == '2':
+	login_pass = open('user/password.txt')
+	login_name = open('user/username.txt')
+	l_p = login_pass.read()
+	l_n = login_name.read()
+
+while True:
+	login = input(str("Please enter your password for " + l_n + ": "))
+	if login == l_p:
+		os.startfile("home.py")
+		break
+	else:
+		print("Incorrect password")
