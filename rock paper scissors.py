@@ -1,18 +1,17 @@
 import random
 winner = "tie"
+choices = ["rock","paper","sissors"]
 
 while winner == "tie":
     user_choice = input("what will you play as: ")
-    dice = random.randint(1,3)
-    if dice == 1:
-        comp_choice = "rock"
-        print("The computer chose rock")
-    elif dice == 2:
-        comp_choice="paper"
-        print("The computer chose paper")
-    elif dice == 3:
-        comp_choice = "scissors"
-        print("The computer chose scissors")
+
+    comp_choice = random.choice(choices)
+    if comp_choice == "rock":
+        print("the computer chose rock")
+    elif comp_choice == "paper":
+        print("the computer chose paper")
+    elif comp_choice == "scissors":
+        print("the computer chose scissors")
 
     if user_choice == "rock":
         if comp_choice == "rock":
