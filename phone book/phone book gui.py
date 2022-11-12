@@ -1,9 +1,13 @@
 from tkinter import *
 import os
-  
+
+# !!! THIS FILE NEEDS TO BE IN A SEPARATE FOLDER !!!
+
+
+
 root = Tk()
 root.title("Phone book")
-root.geometry('400x500')
+root.geometry('450x600')
   
 # Information List
 f_list = os.listdir() #preveri za kontakte ki obstajajo
