@@ -39,7 +39,7 @@ def view_info(n,p,e):
     n = n[::-1]
 
     view_window=Toplevel()
-    view_window.title(n+" info")
+    view_window.title(n)
     view_window.geometry("220x110")
     view_window.configure(bg="black")
 
